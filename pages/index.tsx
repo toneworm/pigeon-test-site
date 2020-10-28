@@ -9,6 +9,7 @@ const getPigeonQuote = () => {
     'So plump and healthy looking',
     'What a specimen!',
     "Can't wait to see 'im fly",
+    'Absolute beaut',
   ]
 
   return pigeonQuotes[Math.floor(Math.random() * pigeonQuotes.length)]
@@ -17,8 +18,10 @@ const getPigeonQuote = () => {
 function IndexPage({ pigeons, apiRoot }) {
   return (
     <div>
-      <div className="px-20 py-4">
-        <h1 className="text-6xl font-bold pt-8 mb-8">The Pigeon Directory</h1>
+      <div className="px-4 py-4 lg:px-10">
+        <h1 className="text-6xl font-bold lg:pt-8 mb-8">
+          The Pigeon Directory
+        </h1>
         <p className="mb-8 text-gray-700">
           Fusce at libero non ante pulvinar scelerisque.{' '}
           <strong>Nam sagittis lacus eu scelerisque lobortis.</strong> Donec a
@@ -38,8 +41,8 @@ function IndexPage({ pigeons, apiRoot }) {
           <span className="text-highlight">Sed tempus lectus quis odio</span>{' '}
           finibus, porttitor tincidunt quam molestie.
         </p>
-        <div className="bg-gray-100 p-5">
-          <h2 className="text-4xl text-gray-700 p-6 mb-4">
+        <div className="bg-gray-100 p-4">
+          <h2 className="text-4xl text-gray-700 p-2 mb-4">
             Let's hear about these pigeons...
           </h2>
           <ul>
@@ -53,7 +56,7 @@ function IndexPage({ pigeons, apiRoot }) {
                 bio,
               }) => {
                 return (
-                  <li className="lg:flex lg:flex-1 lg:justify-between p-6 hover:bg-gray-200 cursor-pointer ">
+                  <li className="lg:flex lg:flex-1 lg:justify-between p-2 hover:bg-gray-200 cursor-pointer ">
                     <div className="lg:w-2/3 lg:pr-4">
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">
                         {name}
