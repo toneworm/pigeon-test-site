@@ -18,7 +18,7 @@ const getPigeonQuote = () => {
 function IndexPage({ pigeons, apiRoot }) {
   return (
     <div>
-      <div className="px-4 py-4 lg:px-10">
+      <div className="p-4 lg:px-10">
         <h1 className="text-6xl font-bold lg:pt-8 mb-8">
           The Pigeon Directory
         </h1>
@@ -41,22 +41,29 @@ function IndexPage({ pigeons, apiRoot }) {
           <span className="text-highlight">Sed tempus lectus quis odio</span>{' '}
           finibus, porttitor tincidunt quam molestie.
         </p>
-        <div className="bg-gray-100 p-4">
-          <h2 className="text-4xl text-gray-700 p-2 mb-4">
+        <div className="bg-gray-100 lg:p-4">
+          <h2 className="text-4xl text-gray-700 p-4 mb-4">
             Let's hear about these pigeons...
           </h2>
           <ul>
             {pigeons.map(
-              ({
-                name,
-                age,
-                picture: {
-                  formats: { small, medium },
+              (
+                {
+                  name,
+                  age,
+                  picture: {
+                    formats: { small, medium },
+                  },
+                  bio,
                 },
-                bio,
-              }) => {
+                index
+              ) => {
                 return (
-                  <li className="lg:flex lg:flex-1 lg:justify-between p-2 hover:bg-gray-200 cursor-pointer ">
+                  <li
+                    className={`lg:flex lg:flex-1 lg:justify-between p-4 hover:bg-gray-300 cursor-pointer ${
+                      index % 2 === 0 ? 'bg-gray-100' : 'bg-gray-200'
+                    }`}
+                  >
                     <div className="lg:w-2/3 lg:pr-4">
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">
                         {name}
@@ -65,13 +72,13 @@ function IndexPage({ pigeons, apiRoot }) {
                         ({age} year{age === 1 ? '' : 's'} old)
                       </p>
                       <p
-                        className="text-sm text-gray-700 mb-2"
+                        className="text-sm text-gray-700 mb-4"
                         dangerouslySetInnerHTML={{ __html: bio }}
                       />
                     </div>
                     <div className="lg:w-1/3">
                       <img
-                        className="mb-4"
+                        className="mb-4 w-full"
                         src={apiRoot + small.url}
                         srcSet={`${apiRoot + small.url} 320w, ${
                           apiRoot + medium.url
